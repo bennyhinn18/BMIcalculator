@@ -1,5 +1,22 @@
 # Development Environment Setup Guide
 
+## 🚨 IMPORTANT: Windows PowerShell Setup
+
+**Before starting any installation, Windows users must enable script execution:**
+
+```powershell
+# Run PowerShell as Administrator and execute:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Verify the change:
+Get-ExecutionPolicy -List
+```
+
+**Common Error Without This Setup:**
+```
+npx : File C:\Users\...\npm\npx.ps1 cannot be loaded because running scripts is disabled on this system.
+```
+
 ## Prerequisites for All Exercises
 
 ### Common Requirements

@@ -1,54 +1,7 @@
 # App Development Laboratory (CCS332)
 
-## Course Information
-- **Course Code**: CCS332
-- **Course Title**: APP DEVELOPMENT
-- **Credits**: L-T-P-C: 2-0-2-3
-- **Department**: AI & Data Science
-- **Year**: 3rd Year
 
-## Course Objectives
-- To learn development of native applications with basic GUI Components
-- To develop cross-platform applications with event handling
-- To develop applications with location and data storage capabilities
-- To develop web applications with database access
-
-## Course Outcomes
-- **CO1**: Develop Native applications with GUI Components
-- **CO2**: Develop hybrid applications with basic event handling
-- **CO3**: Implement cross-platform applications with location and data storage capabilities
-- **CO4**: Implement cross platform applications with basic GUI and event handling
-- **CO5**: Develop web applications with cloud database access
-
-## Syllabus Overview
-
-### Unit I: Fundamentals of Mobile & Web Application Development (6 hrs)
-- Basics of Web and Mobile application development
-- Native App, Hybrid App, Cross-platform App
-- Progressive Web App, Responsive Web design
-
-### Unit II: Native App Development using Java (6 hrs)
-- Native Web App benefits and scenarios
-- Tools for creating Native App
-- Java & Kotlin for Android, Swift & Objective-C for iOS
-- Basics of React Native, Native Components, JSX, State, Props
-
-### Unit III: Hybrid App Development (6 hrs)
-- Hybrid Web App benefits and criteria
-- Tools: Ionic, Apache Cordova
-- Popular Hybrid App Development Frameworks
-
-### Unit IV: Cross-Platform App Development using React-Native (6 hrs)
-- Cross-platform App benefits and criteria
-- Frameworks: Flutter, Xamarin, React-Native
-- React Native components and concepts
-
-### Unit V: Non-Functional Characteristics of App Frameworks (6 hrs)
-- Comparison of different App frameworks
-- Build Performance, App Performance, Debugging capabilities
-- Time to Market, Maintainability, Ease of Development, UI/UX, Reusability
-
-## Practical Exercises (30 Hours)
+## Practical Exercises 
 
 | Exercise | Title | Technology | Folder | Status |
 |----------|-------|------------|--------|--------|
@@ -251,21 +204,6 @@
 4. **Follow exercise-specific instructions**:
    Each exercise folder contains detailed setup and implementation guides.
 
-## Assessment Criteria
-
-- **Functionality**: Does the application work as expected?
-- **Code Quality**: Clean, readable, and well-documented code
-- **UI/UX Design**: User-friendly interface and experience
-- **Error Handling**: Proper validation and error management
-- **Documentation**: Clear README and code comments
-
-## Submission Guidelines
-
-1. Complete the assigned exercise
-2. Test the application thoroughly
-3. Document any issues or additional features
-4. Submit the code with proper documentation
-5. Include screenshots or demo videos if applicable
 
 ## Resources
 

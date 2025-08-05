@@ -1,5 +1,12 @@
 # Exercise 1: BMI Calculator
 
+## 🚨 Important for Windows Users
+If you encounter script execution errors in PowerShell, run this command first:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+Then proceed with the setup instructions below.
+
 ## Objective
 Build a cross-platform application for BMI (Body Mass Index) calculation using React Native with Expo.
 
@@ -48,59 +55,164 @@ exercise-1-bmi-calculator/
 
 ## Setup Instructions
 
-### Prerequisites
-- Node.js (v16 or later)
-- npm or yarn
-- Expo CLI (`npm install -g @expo/cli`)
-- Expo Go app on your mobile device (for testing)
+### Step 1: Verify Node.js Installation
 
-### Installation
+First, check if Node.js is already installed on your system:
 
-1. **Create a new Expo project** (if starting from scratch):
-   ```bash
-   npx create-expo-app@latest BMICalculator --template tabs
-   cd BMICalculator
-   ```
+```bash
+node --version
+npm --version
+```
 
-2. **Install required dependencies**:
-   ```bash
-   npm install react-native-paper
-   # or
-   yarn add react-native-paper
-   ```
+If these commands show version numbers (Node.js v18 or later), you can skip to Step 2.
 
-3. **Replace the default index.tsx**:
-   - Navigate to `app/(tabs)/`
-   - Replace the content of `index.tsx` with the provided BMI calculator code
+#### Install Node.js (if not installed):
 
-4. **Update app.json** (if needed):
-   ```json
-   {
-     "expo": {
-       "name": "BMI Calculator",
-       "slug": "bmi-calculator",
-       "version": "1.0.0",
-       "orientation": "portrait",
-       "platforms": ["ios", "android", "web"]
-     }
-   }
-   ```
+**Option 1: Download from Official Website**
+- Visit: [https://nodejs.org/](https://nodejs.org/)
+- Download the LTS version (Long Term Support)
+- Run the installer and follow the setup wizard
 
-### Running the Application
+**Option 2: Install using Winget (Windows)**
+```bash
+winget install OpenJS.NodeJS
+```
 
-1. **Start the development server**:
-   ```bash
-   npx expo start
-   ```
+**Option 3: Install using Chocolatey (Windows)**
+```bash
+choco install nodejs
+```
 
-2. **Test on device**:
-   - Scan the QR code with Expo Go app (Android) or Camera app (iOS)
-   - Or use an emulator/simulator
+**Verify installation after installing:**
+```bash
+node --version
+npm --version
+```
 
-3. **Test on web** (optional):
-   ```bash
-   npx expo start --web
-   ```
+### Step 2: Install Expo CLI
+
+**⚠️ Important for Windows Users**: If you get a script execution error, see the [PowerShell script execution issue](#issue-powershell-script-execution-is-disabled-most-common) in troubleshooting section.
+
+Install Expo CLI globally on your system:
+
+```bash
+npm install -g @expo/cli
+```
+
+**If you get PowerShell execution policy error:**
+```powershell
+# Run this first, then retry npm install
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+**Verify Expo installation:**
+```bash
+expo --version
+```
+
+### Step 3: Install Expo Go App (for mobile testing)
+
+- **Android**: Download from [Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent)
+- **iOS**: Download from [App Store](https://apps.apple.com/app/expo-go/id982107779)
+
+### Step 4: Create New Expo Project
+
+**Option A: Start from scratch**
+```bash
+npx create-expo-app@latest BMICalculator --template tabs
+cd BMICalculator
+```
+
+**Option B: Use this exercise folder**
+```bash
+# Navigate to exercise folder
+cd exercise-1-bmi-calculator
+
+# Install dependencies
+npm install
+```
+
+### Step 5: Install Required Dependencies
+
+```bash
+npm install react-native-paper
+```
+
+**For yarn users:**
+```bash
+yarn add react-native-paper
+```
+
+### Step 6: Replace Default Code
+
+- Navigate to `app/(tabs)/` folder
+- Replace the content of `index.tsx` with the provided BMI calculator code
+- Or copy the code from this exercise folder
+
+
+## Running the Application
+
+### Step 7: Start Development Server
+
+Open terminal in your project directory and run:
+
+```bash
+npx expo start
+```
+
+**Expected output:**
+```
+› Metro waiting on exp://192.168.x.x:8081
+› Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
+› Press a │ open Android
+› Press i │ open iOS simulator
+› Press w │ open web
+```
+
+### Step 8: Run on Your Device
+
+**For Android:**
+1. Open Expo Go app on your Android device
+2. Tap "Scan QR code"
+3. Scan the QR code from your terminal
+4. App will load automatically
+
+**For iOS:**
+1. Open Camera app on your iPhone/iPad
+2. Point camera at QR code from terminal
+3. Tap the notification that appears
+4. App will open in Expo Go
+
+### Step 9: Alternative Running Methods
+
+**Run in Android Emulator:**
+```bash
+npx expo start --android
+```
+
+**Run in iOS Simulator (macOS only):**
+```bash
+npx expo start --ios
+```
+
+**Run in Web Browser:**
+```bash
+npx expo start --web
+```
+
+**Clear cache if needed:**
+```bash
+npx expo start --clear
+```
+
+### Step 10: Verify App is Working
+
+1. App should load with "BMI Calculator" title
+2. Try entering height: `170` and weight: `65`
+3. Tap "Calculate BMI" button
+4. Should display: "Your BMI: 22.5" and "Status: Normal weight"
+
+**If app loads successfully, Exercise 1 is complete! ✅**
 
 ## Code Explanation
 
@@ -186,14 +298,89 @@ After completing this exercise, students will understand:
 
 ## Common Issues & Solutions
 
-### Issue: Module not found errors
+### Setup Issues
+
+#### Issue: PowerShell script execution is disabled (MOST COMMON)
+**Error Message**: 
+```
+npx : File C:\Users\...\npm\npx.ps1 cannot be loaded because running scripts is disabled on this system.
+```
+
+**Solution**: Enable PowerShell script execution
+```powershell
+# Option 1: Run as Administrator and enable for current user
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Option 2: Temporary bypass (single session)
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+
+# Option 3: Check current policy
+Get-ExecutionPolicy -List
+```
+
+**Alternative Solutions**:
+```bash
+# Use cmd instead of PowerShell
+cmd
+
+# Or use npx with --ignore-existing
+npx --ignore-existing @expo/cli@latest
+```
+
+#### Issue: 'node' is not recognized as internal or external command
+**Solution**: Node.js is not installed or not in PATH
+```bash
+# Check if Node.js is installed
+node --version
+
+# If not installed, use winget:
+winget install OpenJS.NodeJS
+
+# Or download from: https://nodejs.org/
+```
+
+#### Issue: 'npx' is not recognized
+**Solution**: Update npm or reinstall Node.js
+```bash
+npm install -g npm@latest
+```
+
+#### Issue: Permission denied when installing Expo CLI
+**Solution**: Run PowerShell as Administrator
+```bash
+# Run as Administrator
+npm install -g @expo/cli
+```
+
+#### Issue: Expo CLI installation fails
+**Solution**: Clear npm cache and retry
+```bash
+npm cache clean --force
+npm install -g @expo/cli
+```
+
+### Runtime Issues
+
+#### Issue: Module not found errors
 **Solution**: Ensure all dependencies are installed:
 ```bash
 npm install react-native-paper
 npx expo install --fix
 ```
 
-### Issue: UI components not styled properly
+#### Issue: Metro bundler won't start
+**Solution**: Clear cache and restart
+```bash
+npx expo start --clear
+```
+
+#### Issue: QR code not scanning
+**Solutions**:
+- Ensure phone and computer are on same WiFi network
+- Try typing the URL manually in Expo Go app
+- Use tunnel mode: `npx expo start --tunnel`
+
+#### Issue: UI components not styled properly
 **Solution**: Wrap the app with PaperProvider:
 ```typescript
 <PaperProvider>
@@ -201,8 +388,18 @@ npx expo install --fix
 </PaperProvider>
 ```
 
-### Issue: Keyboard covering input fields
-**Solution**: Use KeyboardAvoidingView (already implemented)
+#### Issue: App crashes on device but works in browser
+**Solutions**:
+- Check device compatibility
+- Update Expo Go app
+- Try on different device/emulator
+
+#### Issue: TypeScript errors
+**Solution**: Ensure TypeScript is properly configured:
+```bash
+# Install TypeScript dependencies
+npm install --save-dev typescript @types/react @types/react-native
+```
 
 ## Extensions & Improvements
 Students can enhance the app by adding:
